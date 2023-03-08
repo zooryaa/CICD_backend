@@ -15,5 +15,4 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.MY_SECRET }}
         run: echo $SUPER_SECRET
-          openssl x509 -in cert.der -inform DER -text -noout
 
