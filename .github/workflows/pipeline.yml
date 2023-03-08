@@ -9,7 +9,7 @@ on:
 # Your workflows jobs.
 jobs:
   say-hello:
-    runs-on: ubuntu-latest
+    runs-on: gradle:jdk18
     steps:
       - name: Greet
         run: echo ${{ secrets.MY_SECRET }}
