@@ -12,7 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet
-        env:
-          SUPER_SECRET: ${{ secrets.MY_SECRET }}
-        run: echo $SUPER_SECRET
+        run: echo ${{ secrets.MY_SECRET }}
 
