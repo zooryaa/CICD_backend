@@ -1,0 +1,66 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+java.sourceCompatibility = JavaVersion.VERSION_18
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation group: 'commons-validator', name: 'commons-validator', version: '1.7'
+
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.2.Final'
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.2.Final'
+	annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.3'
+	compileOnly("org.springframework.boot:spring-boot-devtools")
+	// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+
+	// Recommendation system
+	implementation 'io.gorse:gorse-client:0.4.0'
+	// https://mvnrepository.com/artifact/com.theokanning.openai-gpt3-java/service
+	implementation group: 'com.theokanning.openai-gpt3-java', name: 'service', version: '0.10.0'
+
+	//Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Swagger
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
+	// Testing
+	testImplementation "com.h2database:h2:1.4.200"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'com.tngtech.archunit:archunit:1.0.1'
+
+	implementation 'commons-io:commons-io:2.11.0'
+	// https://mvnrepository.com/artifact/redis.clients/jedis
+	implementation group: 'redis.clients', name: 'jedis', version: '4.4.0-m2'
+}
+
+test {
+	useJUnitPlatform()
+}
