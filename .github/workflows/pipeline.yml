@@ -14,5 +14,5 @@ jobs:
       - name: Greet
         run: echo ${{ secrets.MY_SECRET }}
       - name: SonarQube
-        run: ./gradlew sonarqube --info -Dsonar.projectKey=uk223   -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}  -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: ../gradlew sonarqube --info -Dsonar.projectKey=uk223   -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}  -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
