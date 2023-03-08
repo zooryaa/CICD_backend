@@ -13,6 +13,24 @@ jobs:
     steps:
       - name: Greet
         run: echo ${{ secrets.MY_SECRET }}
-      - name: SonarQube
-        run: ../gradlew sonarqube --info -Dsonar.projectKey=uk223   -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}  -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+  remote-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: 185.229.90.245
+          username: masha
+          password: xXQpM2B4V
+          port: 22
+          script: echo “Hello World”
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run sonarqube
+        run: |
+          ./gradlew sonarqube --info -Dsonar.projectKey=uk223
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
 
