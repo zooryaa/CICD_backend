@@ -13,6 +13,7 @@ services:
     restart: unless-stopped
     image: zooyraa/uek_extended_backend:latest
     container_name: backend
+    env_file: .env
 
   redis:
     image: redis
@@ -30,6 +31,7 @@ services:
       - '5432:5432'
     volumes:
       - db_postgres:/var/lib/postgresql/data
+      -
   gorse:
     image: zhenghaoz/gorse-in-one
     restart: unless-stopped
