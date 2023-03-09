@@ -1,27 +1,27 @@
 version: "3"
 
 services:
-  frontendMasha:
+  frontendmasha:
     restart: unless-stopped
     image: zooyraa/uek_extended_frontend:latest
-    container_name: masha/frontend
+    container_name: mfrontend
     depends_on:
-      - backendMasha
+      - backendmasha
     ports:
       - "8014:80"
 
-  backendMasha:
+  backendmasha:
     restart: unless-stopped
     image: zooyraa/uek_extended_backend:latest
-    container_name: masha/backend
+    container_name: mbackend
 
-  redisMasha:
+  redismasha:
     image: redis
     restart: unless-stopped
     ports:
       - 6379:6379
 
-  postgresMasha:
+  postgresmasha:
     image: postgres
     restart: always
     environment:
@@ -32,7 +32,7 @@ services:
     volumes:
       - db_postgres_masha:/var/lib/postgresql/data
 
-  gorseMasha:
+  gorsemasha:
     image: zhenghaoz/gorse-in-one
     restart: unless-stopped
     ports:
@@ -51,8 +51,8 @@ services:
       # Mount the configuration file.
       - ./config.toml:/etc/gorse/config.toml
     depends_on:
-      - redisMasha
-      - postgresMasha
+      - redismasha
+      - postgresmasha
 
 volumes:
     db_postgres_masha:
