@@ -30,6 +30,15 @@ jobs:
           port: 22
           source: ./config.toml
           target: /home/masha/
+      - name: transfer .env
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          source: ./.env
+          target: /home/masha/
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -38,6 +47,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            docker compose down &&
-            docker compose pull &&
-            docker compose up -d --remove-orphans
+            docker-compose down &&
+            docker-compose pull &&
+            docker-compose up -d --remove-orphans
