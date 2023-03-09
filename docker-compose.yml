@@ -3,16 +3,16 @@ version: "3"
 services:
   frontend:
     restart: unless-stopped
-    image: zooyraa/uek223-extended_frontend:latest
-    container_name: frontend
+    image: zooyraa/uek_extended_frontend:latest
+    container_name: masha/frontend
     depends_on:
       - backend
     ports:
-      - "3000:80"
+      - "8014:80"
   backend:
     restart: unless-stopped
     image: zooyraa/uek_extended_backend:latest
-    container_name: backend
+    container_name: masha/backend
     env_file: .env
 
   redis:
