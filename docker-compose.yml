@@ -9,6 +9,7 @@ services:
       - backendMasha
     ports:
       - "8014:80"
+
   backendMasha:
     restart: unless-stopped
     image: zooyraa/uek_extended_backend:latest
