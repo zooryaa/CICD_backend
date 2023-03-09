@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: 22
-          script: ./../run.sh
+          script: echo "hello"
 
   build:
     runs-on: ubuntu-latest
