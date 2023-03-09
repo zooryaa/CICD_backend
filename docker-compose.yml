@@ -19,7 +19,7 @@ services:
     image: redis
     restart: unless-stopped
     ports:
-      - 6379:6379
+      - 6379
 
   postgresmasha:
     image: postgres
@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '5432:5432'
+      - 5432
     volumes:
       - db_postgres_masha:/var/lib/postgresql/data
 
@@ -36,8 +36,8 @@ services:
     image: zhenghaoz/gorse-in-one
     restart: unless-stopped
     ports:
-      - 8086:8086   # gRPC port
-      - 8088:8088   # HTTP port
+      - 8086   # gRPC port
+      - 8088   # HTTP port
     environment:
       # Use Redis as cache storage backend.
       GORSE_CACHE_STORE: redis://redisMasha:6379
