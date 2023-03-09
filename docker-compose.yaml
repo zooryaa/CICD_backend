@@ -1,5 +1,19 @@
 version: "3"
+
 services:
+  frontend:
+    restart: unless-stopped
+    image: zooyraa/uek223-extended_frontend:latest
+    container_name: frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+  backend:
+    restart: unless-stopped
+    image: zooyraa/uek_extended_backend:latest
+    container_name: backend
+
   redis:
     image: redis
     restart: unless-stopped
