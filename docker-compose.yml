@@ -13,7 +13,6 @@ services:
     restart: unless-stopped
     image: zooyraa/uek_extended_backend:latest
     container_name: masha/backend
-    env_file: .env
 
   redisMasha:
     image: redis
