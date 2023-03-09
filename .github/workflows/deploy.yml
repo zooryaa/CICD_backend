@@ -38,6 +38,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            docker compose down &&
-            docker compose pull &&
+            docker compose down && \
+            docker compose pull && \
             docker compose up -d --remove-orphans
